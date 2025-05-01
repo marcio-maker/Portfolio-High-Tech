@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio High-Tech</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="dark">
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-content"></div>
+    </div>
+
+    <!-- Three.js Canvas -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full py-4 px-6 z-40 glass-card">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">
+                <span class="text-primary-dark">Portfolio</span>
+            </a>
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">Sobre</a>
+                <a href="#projects" class="nav-link">Projetos</a>
+                <a href="#skills" class="nav-link">Habilidades</a>
+                <a href="#contact" class="nav-link">Contato</a>
+                <div class="theme-switch ml-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                    </svg>
+                </div>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden" id="mobile-menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <button id="close-menu" class="absolute top-6 right-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="#home" class="nav-link text-2xl">Home</a>
+            <a href="#about" class="nav-link text-2xl">Sobre</a>
+            <a href="#projects" class="nav-link text-2xl">Projetos</a>
+            <a href="#skills" class="nav-link text-2xl">Habilidades</a>
+            <a href="#contact" class="nav-link text-2xl">Contato</a>
+            <div class="theme-switch">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero min-h-screen flex items-center justify-center relative pt-16">
+            <div class="text-center z-10 px-4 sm:px-6 lg:px-8">
+                <h1 class="text-5xl sm:text-6xl font-bold mb-4">
+                    Creative Developer
+                </h1>
+                <p class="text-lg sm:text-xl opacity-80 mb-8">
+                    Building digital experiences that matter
+                </p>
+                <a href="#contact" class="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-primary-light to-primary-dark text-white font-medium">
+                    Entre em Contato
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="section-title text-center">Sobre Mim</h2>
+                <div class="glass-card p-6 sm:p-8">
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                        <div class="w-32 h-32 rounded-full overflow-hidden bg-gradient-to-br from-primary-light to-primary-dark flex-shrink-0">
+                            <img src="/api/placeholder/128/128" alt="Perfil" class="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                            <p class="mb-4">
+                                Olá! Sou um desenvolvedor apaixonado por criar experiências digitais imersivas e interativas. Com foco em tecnologias front-end modernas e visualizações 3D, busco combinar design e funcionalidade para entregar projetos únicos.
+                            </p>
+                            <p class="mb-4">
+                                Minha jornada começou com HTML e CSS simples, mas evoluiu para frameworks modernos como React, Three.js e ferramentas de animação como GSAP. Acredito que a tecnologia deve ser usada para criar conexões emocionais e experiências memoráveis.
+                            </p>
+                            <p>
+                                Quando não estou codificando, gosto de explorar novas tendências em design, jogar videogames e praticar fotografia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-opacity-5">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="section-title text-center">Projetos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Projeto 1 -->
+                    <div class="project-card glass-card overflow-hidden">
+                        <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600">
+                            <img src="/api/placeholder/400/192" alt="Projeto 1" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Visualizador 3D</h3>
+                            <p class="opacity-80 mb-4">
+                                Aplicação web interativa para visualização de modelos 3D com Three.js e React.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge">Three.js</span>
+                                <span class="skill-badge">React</span>
+                                <span class="skill-badge">WebGL</span>
+                            </div>
+                            <a href="#" class="inline-block text-primary-dark hover:underline">Ver projeto →</a>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 2 -->
+                    <div class="project-card glass-card overflow-hidden">
+                        <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600">
+                            <img src="/api/placeholder/400/192" alt="Projeto 2" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Dashboard Animado</h3>
+                            <p class="opacity-80 mb-4">
+                                Interface de usuário moderna com animações GSAP e visualização de dados.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge">GSAP</span>
+                                <span class="skill-badge">TailwindCSS</span>
+                                <span class="skill-badge">D3.js</span>
+                            </div>
+                            <a href="#" class="inline-block text-primary-dark hover:underline">Ver projeto →</a>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 3 -->
+                    <div class="project-card glass-card overflow-hidden">
+                        <div class="h-48 bg-gradient-to-r from-red-500 to-orange-600">
+                            <img src="/api/placeholder/400/192" alt="Projeto 3" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Sistema de Partículas</h3>
+                            <p class="opacity-80 mb-4">
+                                Experiência interativa usando sistema de partículas reativas ao mouse.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="skill-badge">Canvas API</span>
+                                <span class="skill-badge">JavaScript</span>
+                                <span class="skill-badge">Performance</span>
+                            </div>
+                            <a href="#" class="inline-block text-primary-dark hover:underline">Ver projeto →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="section-title text-center">Habilidades</h2>
+                <div class="glass-card p-6 sm:p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Frontend -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Frontend</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>React.js</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+                                        <div class="bg-primary-dark h-full rounded-full" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Three.js</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+                                        <div class="bg-primary-dark h-full rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>TailwindCSS</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+                                        <div class="bg-primary-dark h-full rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>GSAP</span>
+                                        <span>80%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+                                        <div class="bg-primary-dark h-full rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Backend & Tools -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Backend & Ferramentas</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Node.js</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+                                        <div class="bg-primary-dark h-full rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Git</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+                                        <div class="bg-primary-dark h-full rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Vite</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+                                        <div class="bg-primary-dark h-full rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>API REST</span>
+                                        <span>80%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+                                        <div class="bg-primary-dark h-full rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="section-title text-center">Entre em Contato</h2>
+                <div class="glass-card p-6 sm:p-8">
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block mb-2 text-sm font-medium">Nome</label>
+                                <input type="text" id="name" class="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-gray-300 border-opacity-20 focus:outline-none focus:ring-2 focus:ring-primary-dark" placeholder="Seu nome">
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 text-sm font-medium">Email</label>
+                                <input type="email" id="email" class="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-gray-300 border-opacity-20 focus:outline-none focus:ring-2 focus:ring-primary-dark" placeholder="seu@email.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 text-sm font-medium">Assunto</label>
+                            <input type="text" id="subject" class="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-gray-300 border-opacity-20 focus:outline-none focus:ring-2 focus:ring-primary-dark" placeholder="Assunto da mensagem">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 text-sm font-medium">Mensagem</label>
+                            <textarea id="message" rows="4" class="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-gray-300 border-opacity-20 focus:outline-none focus:ring-2 focus:ring-primary-dark" placeholder="Sua mensagem aqui..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-primary-light to-primary-dark text-white font-medium hover:opacity-90 transition-opacity">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <!-- Github -->
+                <a href="#" class="hover:text-primary-dark">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+                <!-- Linkedin -->
+                <a href="#" class="hover:text-primary-dark">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                    </svg>
+                </a>
+                <!-- Twitter -->
+                <a href="#" class="hover:text-primary-dark">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                    </svg>
+                </a>
+            </div>
+            <p class="text-sm opacity-70">
+                © 2025 Portfolio High-Tech. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Particles -->
+    <div id="particles"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="three-scene.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
